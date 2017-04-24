@@ -1,0 +1,93 @@
+[{
+    "name": "Dodecahedron",
+    "price": 2.95,
+    "description": "Some gems have hidden qualities beyond their lustre, beyond their shine... Dodecahedron is one of those gems",
+    "canPurchase": true,
+    "soldOut": false,
+    "images": [{
+        "full": "images/gem-01.gif",
+        "thumb": "images/gem-01.gif"
+
+    }],
+    "reviews": [{
+        "stars": 5,
+        "body": "I love this product!",
+        "author": "joe@codingtemple.com"
+
+    }, {
+        "stars": 1,
+        "body": "This product sucks",
+        "author": "ripal@codingtemple.com"
+
+    }]
+
+}, {
+    "name": "Pentagonal gems",
+    "price": 5.95,
+    "description": "take this for desp",
+    "canPurchase": true,
+    "soldOut": false,
+    "images": [{
+        "full": "images/gem-02.gif",
+        "thumb": "images/gem-02.gif"
+
+    }],
+    "reviews": [{
+        "stars": 5,
+        "body": "I love this product!",
+        "author": "joe@codingtemple.com"
+
+    }, {
+        "stars": 1,
+        "body": "This product sucks",
+        "author": "ripal@codingtemple.com"
+
+    }]
+
+}, {
+    "name": "Diamonds",
+    "price": 190.54,
+    "description": "Woman's best friend",
+    "canPurchase": true,
+    "soldOut": false,
+    "images": [{
+        "full": "images/gem-03.gif",
+        "thumb": "images/gem-03.gif"
+
+    }],
+    "reviews": [{
+        "stars": 5,
+        "body": "I love this product!",
+        "author": "joe@codingtemple.com"
+
+    }, {
+        "stars": 1,
+        "body": "This product sucks",
+        "author": "ripal@codingtemple.com"
+
+    }]
+
+}, {
+    "name": "Sasha",
+    "price": 134.43,
+    "description": "Earth's friends",
+    "canPurchase": true,
+    "soldOut": false,
+    "images": [{
+        "full": "images/gem-04.gif",
+        "thumb": "images/gem-04.gif"
+
+    }],
+    "reviews": [{
+        "stars": 5,
+        "body": "I love this product!",
+        "author": "joe@codingtemple.com"
+
+    }, {
+        "stars": 1,
+        "body": "This product sucks",
+        "author": "ripal@codingtemple.com"
+
+    }]
+
+}]
