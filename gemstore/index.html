@@ -23,7 +23,6 @@
 <body ng-app="myapp">
    <div class="container">
    <div class = "row">
-   <div >
     <div ng-controller="gemstorectrl">
         <div ng-repeat="products in gems | orderBy:'-price'" class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
             <h1> {{products.name}} </h1>
@@ -83,7 +82,6 @@
     </div>
     </div>
     </div>
-</div>
     <!--AngularJS script -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
