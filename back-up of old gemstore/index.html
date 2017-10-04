@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>New GemStore</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--    <link href="main.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-app="myapp">
+    <div class="container">
+        <div class="row">
+            <div>
+                <div ng-controller="gemstorectrl">
+                    <div ng-repeat="products in gem | orderBy:'price'" class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
+                        <h1> {{products.productname}} </h1>
+                        <img ng-repeat="images in products.images" ng-src="{{images.full}}" />
+                        <section ng-controller="panelcontroller">
+                            <ul class="nav nav-pills">
+                                <li ng-class="{active: tab === 1}"><a ng-click="selectTab(1)" href>Description</a></li>
+                                <li ng-class="{active: tab === 2}"><a ng-click="selectTab(2)" href>Specifications</a></li>
+                                <li ng-class="{active: tab === 3}"><a ng-click="selectTab(3)" href>Reviews</a></li>
+                            </ul>
+                            <div class="panel" ng-show="tab === 1">
+                                <blockquote> {{products.description}} </blockquote>
+                            </div>
+                            <div class="panel" ng-show="tab === 2">
+                                <blockquote>In Development</blockquote>
+                            </div>
+                            <div class="panel" ng-show="tab === 3">
+                                <blockquote ng-repeat="review in products.reviews">
+                                    <b>Stars:{{review.stars}}</b> {{review.body}}
+                                    <cite>by:{{review.author}} </cite>
+                                </blockquote>
+                                <h4>Write a Review</h4>
+                                <form name="reviewForm" ng-controller="ReviewController" ng-submit="addReview(product)">
+                                    <blockquote>
+                                        <b>Stars: {{newReview.stars}}</b> {{newReview.body}}
+                                        <cite>by: {{newReview.author}}</cite>
+                                    </blockquote>
+                                    <div class="form-group">
+                                        <label class="control-label" for="stars">Rating</label>
+                                        <select name="stars" class="form-control" ng-model="newReview.stars">
+                <option value="1">1 star</option>
+                <option value="2">2 stars</option>
+                <option value="3">3 stars</option>
+                <option value="4">4 stars</option>
+                <option value="5">5 stars</option>
+                </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="body">Review</label>
+                                        <textarea name="body" class="form-control" placeholder="Write your review..." ng-model="newReview.body"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="author">Email Address</label>
+                                        <input type="email" placeholder="Email Address" name="author" class="form-control" ng-model="newReview.author" />
+                                    </div>
+                                    <input type="submit" value="Add Review" class="btn btn-default" />
+                                </form>
+                            </div>
+                            <div ng-hide="products.soldOut">
+                                <h2> {{products.price | currency }} </h2>
+                                <button class="btn btn-success" ng-show="products.canPurchase">Add to cart</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--AngularJS script -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
